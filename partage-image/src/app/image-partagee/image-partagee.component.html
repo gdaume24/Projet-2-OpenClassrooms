@@ -1,0 +1,15 @@
+<div class="face-snap-card" >
+    <h2>{{ imagePartagee.title }}</h2>
+    <p>{{ imagePartagee.description }}</p>
+    @if (imagePartagee.location) {
+        <p>Localisation : {{ imagePartagee.location }}</p>
+        }
+    
+    <p>image-partagee créée le {{ imagePartagee.createdAt | date: 'd MMMM yyyy, à HH:mm' }}</p>
+    <p>
+        <button (click)="onAddLike()" [ngClass]="{ liked: isLiked }">{{ likeButtonText }}</button>
+        <span [ngStyle]="{ color: 'rgb(0, '+ imagePartagee.likes +', 0)' }">{{ imagePartagee.likes }}</span>
+        
+    </p>
+    <img [src]="imagePartagee.imageUrl" [alt]="imagePartagee.title">
+</div>
