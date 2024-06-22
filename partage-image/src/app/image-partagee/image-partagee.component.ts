@@ -20,6 +20,8 @@ export class ImagePartageeComponent implements OnInit {
   likeButtonText!: string;
   myPercent : number = 744.465
 
+  constructor(private imagePartageeService: )
+
   ngOnInit() {
     this.isLiked = false
     this.likeButtonText = "Like"
@@ -34,7 +36,7 @@ export class ImagePartageeComponent implements OnInit {
   }
 
   Like() {
-    this.imagePartagee.addLike();
+    this.imagePartageeService.imagePartageeLikeById(this.imagePartagee.id);
     this.isLiked = true;
     this.likeButtonText = "Liked"
   }

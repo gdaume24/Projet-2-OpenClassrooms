@@ -33,4 +33,12 @@ export class ImagePartageesService {
     getImagePartagees(): ImagePartagee[] {
         return [...this.imagePartagees];
     }
+
+    imagePartageeLikeById(imagePartageeId: string): void {
+        const foundImagePartagee : ImagePartagee | undefined = this.imagePartagees.find(imagePartagee : ImagePartagee => imagePartagee.id === imagePartageeId);
+        if (!foundImagePartagee) {
+            throw new Error('ImagePartagee not found !')
+        }
+        foundImagePartagee.addLike();
+    } 
 }
